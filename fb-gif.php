@@ -1,6 +1,6 @@
 <?php
 
-//this script made By ahmad hegazy <ahegazipro@gmail.com> you can Edit it and add new features but please don't remve copyright ,, thnaks 
+//Created by Ahmad Hegazy <ahegazipro@gmail.com>
 
 if (isset($_POST['submit'])){
 	if ($_POST['pic'] == ""){
@@ -35,7 +35,6 @@ if (isset($_POST['submit'])){
 	
 	$html="<a href=\"$full_link\" target=\"_blank\" >press here</a> <br/> <a href=\"fb-pic.php\">Share another picture<a/>";
 	echo $html;
-	echo $copyright;
 }else{
 
 $msg =isset($_GET['msg']) ? $_GET['msg'] : "";
@@ -60,7 +59,7 @@ Link : <input type="text" name="link"><br>
 
 </form>
 
-<br><br><br><center>This script made by <a href="http://facebook.com/ahegazipro">Ahmad Hegazy</a> MailME: <a href="mailto:ahegazipro@gmail.com">ahegazipro@gmail.com</a></center>
+<br><br><br><center>Created by <a href="http://facebook.com/ahegazipro">Ahmad Hegazy</a> MailME: <a href="mailto:ahegazipro@gmail.com">ahegazipro@gmail.com</a></center>
 
 </body>
 </html>

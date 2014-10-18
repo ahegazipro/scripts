@@ -1,5 +1,6 @@
 #!/bin/bash
 # Created by Ahmad Hegazy <ahegazipro@gmail.com>
+#Maintained by SibirskiiVolk
 
 FEDIR="/usr/share/horus/frontends/curses/"
 LANGDIR="$FEDIR/langs"
@@ -89,7 +90,7 @@ function chosGrub(){
 	prntWait
 	SPHINUX=`echo "$1" | sed 's/ //g'`
 	SPHNUM=$2
-	echo "$SPHINUX" | sed 's/\/dev\///g' | awk -F ':' '{print ":"$1": :"$2":"}' | tr ':' '"' | xargs dialog --clear --ok-label "Restore" --no-cancel --backtitle "$HORUSLONGTITLE" --no-shadow --title "$HORUSTITLE" --hline "Select installation to restore" --menu "Detected $SPHNUM StdBaseFS compatible installations.\nSelect installation to restore:" 0 0 0 2> 1
+	echo "$SPHINUX" | sed 's/\/dev\///g' | awk -F ':' '{print ":"$1": :"$2":"}' | tr ':' '"' | xargs dialog --clear --ok-label "Restore" --no-cancel --backtitle "$HORUSLONGTITLE" --no-shadow --title "$HORUSTITLE" --hline "Select installation to restore" --menu "Detected $SPHNUM StdBaseFS compatible installations.\nSelect installation to restore:" 0 0 0 2> /tmp/sel
 	choice=`getChoice`
 	rm /tmp/sel 2> /dev/null
 	restGrub "$choice"
