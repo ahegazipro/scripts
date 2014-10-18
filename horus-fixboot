@@ -1,0 +1,112 @@
+#!/bin/bash
+# Created by Ahmad Hegazy <ahegazipro@gmail.com>
+
+FEDIR="/usr/share/horus/frontends/curses/"
+LANGDIR="$FEDIR/langs"
+HORUSTITLE=" Horus 2.0 (Boot Wizard)"
+OLDIFS="$IFS"
+READY=""
+START=""
+
+export DIALOG_CANCEL="255"
+
+function trapSigs()
+{
+	trap cleanUp SIGINT SIGHUP SIGKILL SIGTERM
+}
+
+function cleanUp()
+{
+	rm /var/run/horus 2> /dev/null
+	rm /tmp/sel 2> /dev/null
+	IFS="OLDIFS"
+}
+
+function getChoice()
+{
+	cat /tmp/sel 2> /dev/null | head -n1 | tr -d '\n' | tr -d ' '
+}
+
+function prntWait()
+{
+	tput sc
+	echo -en "\e[47m\e[30mPlease Wait ...`putSpace $((\`tput cols\`-16))`" ;echo -en "\e[0m"
+	tput rc
+}
+
+function putSpace()
+{
+	cols=$1
+	i=0
+	while [[ "$i" -le "$cols" ]]
+	do
+		echo -n " "
+		i=$((i+1))
+	done
+}
+
+HORUSLONGTITLE="SphinUX StdBaseFS 1.1 `putSpace $((\`tput cols\`-51))` $HORUSTITLE"
+DIALOGLINE="--clear --backtitle \"$HORUSLONGTITLE\" --nook --no-cancel --no-shadow  --title \"$HORUSTITLE\""
+
+prntWait
+
+function promptError()
+{
+	trapSigs
+	mess="$1"
+
+	dialog --clear --backtitle "$HORUSLONGTITLE" --ok-label "$OKLABEL" --no-cancel --no-shadow --title "$HORUSTITLE" --msgbox "$mess" 15 50
+}
+
+
+function chkOSs(){
+	OS=`os-prober`
+	SPHNUM=`echo "$OS" | grep -ci "SphinUX"`
+	SPHINUX=`echo "$OS" | grep -i "SphinUX"`
+
+	if [[ $SPHNUM > 1 ]]
+	then
+		chosGrub "$SPHINUX" "$SPHNUM"
+	elif [[ $SPHNUM == 1 ]]
+	then
+		SPHPART=`echo "$SPHINUX" | cut -d ":" -f1 | sed 's/\/dev\///g'`
+		INSTTITLE=`echo "$SPHINUX" | awk -F ':' '{print $2}'`
+		dialog --clear --backtitle "$HORUSLONGTITLE" --no-shadow --title "$HORUSTITLE" --yes-label "Restore" --no-label "Exit" --hline "Horus 2.0" --yesno "Found $INSTTITLE on /dev/$SPHPART.\n\nWARNING: Will overwrite your current bootloader." 8 63
+		if [[ "$?" == "0" ]]
+		then
+			restGrub "$SPHPART"
+		else
+			beep
+			reboot -f
+		fi
+	else
+		dialog --clear --backtitle "$HORUSLONGTITLE" --no-shadow --title "$HORUSTITLE" --hline "Horus 2.0" --msgbox "Unable to detect any StdBaseFS compatible installation ...\n\nWill exit Boot Wizard" 7 70
+		reboot -f
+	fi
+}
+
+function chosGrub(){
+	prntWait
+	SPHINUX=`echo "$1" | sed 's/ //g'`
+	SPHNUM=$2
+	echo "$SPHINUX" | sed 's/\/dev\///g' | awk -F ':' '{print ":"$1": :"$2":"}' | tr ':' '"' | xargs dialog --clear --ok-label "Restore" --no-cancel --backtitle "$HORUSLONGTITLE" --no-shadow --title "$HORUSTITLE" --hline "Select installation to restore" --menu "Detected $SPHNUM StdBaseFS compatible installations.\nSelect installation to restore:" 0 0 0 2> 1
+	choice=`getChoice`
+	rm /tmp/sel 2> /dev/null
+	restGrub "$choice"
+}
+
+function restGrub(){
+	SPHPART=$1
+	prntWait
+	partNam="/dev/$SPHPART"
+	mntPoint="/mnt/$SPHPART"
+	mkdir $mntPoint
+	mount $partNam $mntPoint
+
+	/usr/share/horus/scripts/horus-grubconfig $mntPoint 2>&1 | dialog --clear --backtitle "$HORUSLONGTITLE" --ok-label "Reboot" --no-cancel --no-shadow --title "$HORUSTITLE" --programbox "Restoring bootloader ..." 14 75
+	umount $mntPoint
+	rmdir $mntPoint
+	reboot -f
+}
+
+chkOSs
