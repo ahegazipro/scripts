@@ -1,7 +1,6 @@
 <?php
 
 //Created by Ahmad Hegazy <ahegazipro@gmail.com>
-
 if (isset($_POST['submit'])){
 	if ($_POST['pic'] == ""){
 		$msg= "Please Enter Pictue Url";
@@ -49,10 +48,10 @@ $msg .=  "<br>Fields with * are Mandatory";
 Please fill the following form<br>
 <form action="fb-pic.php" method="post">
 
-
 Name: <input type="text" name="name"><br>
 Description: <input type="text" name="description"><br>
 Picture Link : <input type="text" name="pic" value="https://www.facebook.com/303067703214825"><br>
+//upload gif picture on facebook group / press 'upload file' and choose your picture / copy link and edit it like example
 Link : <input type="text" name="link"><br>
 
 <input type="submit" name="submit" value="submit">
