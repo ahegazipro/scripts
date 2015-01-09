@@ -10,15 +10,17 @@
 
 function short(){
 	key="$1"
-	url="$2"
-	apilink="$3"
-	reply=`curl -s --request POST "$apilink" --data "apikey=$key&action=shorten&url=$url"`
+        encode=`curl -s -o /dev/null -w %{url_effective} --get --data-urlencode "$2" ""`
+        url=${encode##/?}
+	reply=`curl -s --request POST "$APILINK" --data "apikey=$key&action=shorten&url=$url"`
 	[[ $? != 0 ]] && die "PLEASE CHECK The APILINK" 6
 	case "$reply" in
 		"401 Unauthorized") die "wrong key .. \npleae check your api key .. or contact to service admin" 2
 		;;
 		"Hey, slow down! Exeeding your perminute quota. Try again in around a minute.") quota
 		;;
+                "Error: URL is not valid") echo -e "$url is not valid .. \nwill skip it."
+                ;;
 		*) showlink
 		;;
 	esac
@@ -43,22 +45,24 @@ function quota(){
 	echo "Exeeding perminute quota."
 	echo "will delay the short process 5 sec more.."
 	sleep=$(($sleep+5))
+	sleep $sleep
+	short "$key" "$url"
 }
 
 function main(){
 
 	key="$1"
 	lst="$2"
-	apilink=`echo "$3" | grep -E '(^https?|ftp|file)://[-A-Za-z0-9\+&@#/%?=~_|!:,.;]*[-A-Za-z0-9\+&@#/%=~_|]'`
+	APILINK=`echo "$3" | grep -E '(^https?|ftp|file)://[-A-Za-z0-9\+&@#/%?=~_|!:,.;]*[-A-Za-z0-9\+&@#/%=~_|]'`
         [[ ! -f "$lst" ]] && die " $lst FILE NOT FOUND." 3
-	[[ -z "$apilink" ]] && die "$3 WORNG LINK" 4
+	[[ -z "$APILINK" ]] && die "$3 WORNG LINK" 4
 	sleep=10
 	i=1
 	urls=`cat "$lst" | grep -E '(^https?|ftp|file)://[-A-Za-z0-9\+&@#/%?=~_|!:,.;]*[-A-Za-z0-9\+&@#/%=~_|]'`
 
 	for url in $urls
 	do
-		short "$key" "$url" "$apilink"
+		short "$key" "$url"
 		sleep $sleep
 	done
 }
