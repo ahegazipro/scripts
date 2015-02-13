@@ -1,6 +1,8 @@
 <?php
 
 //Created by Ahmad Hegazy <ahegazipro@gmail.com>
+//Get more scripts from my scripts repository : https://github.com/ahegazipro/scripts
+
 if (isset($_POST['submit'])){
 	if ($_POST['pic'] == ""){
 		$msg= "Please Enter Pictue Url";

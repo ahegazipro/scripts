@@ -6,6 +6,7 @@
 # depending on PORL URL SHORTENER SCRIPT API
 # http://github.com/cydrobolt/polr
 # created by AHMAD HEGAZY <ahegazipro@gmail.com>
+#Get more scripts from my scripts repository : https://github.com/ahegazipro/scripts
 
 
 function short(){
