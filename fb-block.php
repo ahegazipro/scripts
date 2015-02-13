@@ -58,7 +58,7 @@ if (!empty($_POST['link'])){
 	<h>CHECK IF YOUR FRIEND BLOCKED YOU OR CLOSED/DEACTIVATED HIS ACCOUNT.<br>JUST ENTER HIS USERNAME OR PROFILE URL OR MESSAGE URL.</h>
 	<br>
 	<br>
-	<form action="fb-acc-parse.php" method="POST">
+	<form action="fb-block.php" method="POST">
 		USERNAME OR ID:<br>
 		<br>
 		<input type="text" name="link">
