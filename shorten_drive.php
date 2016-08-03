@@ -1,13 +1,23 @@
 <?php
-//SHORTEN GOOGLE DRIVE FOLDERS INSIDE A FOLDER 
-//USING GOOGLE API ,
-//IT NEEDS GOOGLE DRIVE PERMISSION AND GOOGLE SHORTEN URL PERMISSION FOR THE APP YOUR ARE USING IT'S KEY .
 
+/*
+
+@Author : Ahmad Hegazy <ahegazipro@live.com> <hegazy.ml>
+@description : SHORTEN GOOGLE DRIVE FOLDERS INSIDE A FOLDER 
+
+@other info:
+//YOU NEED TO CREATE AND APP AT GOOGLE CONSOLE : https://console.developers.google.com/apis 
+//IT NEEDS GOOGLE DRIVE PERMISSION AND GOOGLE SHORTEN URL PERMISSION FOR THE APP YOUR ARE USING IT'S KEY .
 
 //READS IT AS A GET REQUEST id=[FOLDER ID]
 //shorten_drive.php?id=[FOLDER ID]
 
+*/
+
 header('Content-Type: text/html; charset=utf-8');
+
+//Don't forget to insert your api key here..
+
 $key="YOUR GOOGLE API KEY HERE";
 
 
@@ -25,6 +35,10 @@ function grab_data($id){
 
 
         $data = json_decode($json,TRUE,JSON_UNESCAPED_UNICODE);
+        if(json_last_error() != JSON_ERROR_NONE){
+                die("ERROR PLEASE CHECK YOUR API KEY ..");
+        }
+
 	$items = $data['items'];
 
 	foreach($items as $item){
@@ -55,14 +69,20 @@ function shortLnk($url){
 	curl_setopt($curlObj, CURLOPT_HTTPHEADER, array('Content-type:application/json'));
 	curl_setopt($curlObj, CURLOPT_POST, 1);
 	curl_setopt($curlObj, CURLOPT_POSTFIELDS, $jsonData);
- 
-	$response = curl_exec($curlObj);
 
+	$response = curl_exec($curlObj);
 //change the response json string to object
+
 	$json = json_decode($response,TRUE,JSON_UNESCAPED_UNICODE);
 	curl_close($curlObj);
+
+	if(json_last_error() != JSON_ERROR_NONE){
+                die("ERROR PLEASE CHECK YOUR API KEY ..");
+	}
+
 	return $json;
 }
+
 
 if(isset($_GET['id'])){
         $short = shortLnk('https://drive.google.com/open?id=' . $_GET['id']);
@@ -70,7 +90,7 @@ if(isset($_GET['id'])){
 	echo "<br/>";
 	grab_data($_GET['id']);
 }else{
-	die('gfy');
+	die('ERROR Needs folder id > shorten_drive.php?id=FOLDERID');
 }
 
 
