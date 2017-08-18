@@ -23,5 +23,5 @@ A C program that reads a sudoko solution and validate the solution is right OR g
 - You can get use a binary file built on Linux/fedora distro at [bin](bin/sudoko.bin) directory.
 - You can get the source code and build it using any C compiler at [src](src/sudoko.c) directory.
 
-######## Have any question or request .. 
+###### Have any question or request .. 
 Contact ME: Ahmad Hegazy <ahegazipro@gmail.com>
