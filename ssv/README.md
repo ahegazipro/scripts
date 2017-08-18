@@ -1,14 +1,14 @@
 # Sudoko solution validator [SSV]
 A C program that reads a sudoko solution and validate the solution is right OR giving the wrong answer's specific position.
 
-##How to use it
--It's an interactive shell application that gives the user multiple choic of whether to write the input on the terminal or to write file path as it reads the solution from a file or standard input [stdin].
--As shown in the example it works using command line
+## How to use it
+- It's an interactive shell application that gives the user multiple choic of whether to write the input on the terminal or to write file path as it reads the solution from a file or standard input [stdin].
+- As shown in the example it works using command line
 > ./sudoko.bin #to run it
-[Example one](screenshots/reading_file.png)
+![Example one](screenshots/reading_file.png)
 
-##Algorithm
--The used algorithm is pertty simple, After raeding the solution into a [9x9] multi dimension array:
+## Algorithm
+- The used algorithm is pertty simple, After raeding the solution into a [9x9] multi dimension array:
 1. Seperate the multi dimension array into rows and columnes.
 2. Rearrang every row and column's elements and check repeated ones.
 3. If it finds a repeated value it prints out the value's position and exists.
@@ -20,8 +20,8 @@ A C program that reads a sudoko solution and validate the solution is right OR g
 9. If it all went well it will till you that your solution is right.
 
 
--You can get use a binary file built on Linux/fedora distro at [bin](bin/sudoko.bin) directory.
--You can get the source code and build it using any C compiler at [src](src/sudoko.c) directory.
+- You can get use a binary file built on Linux/fedora distro at [bin](bin/sudoko.bin) directory.
+- You can get the source code and build it using any C compiler at [src](src/sudoko.c) directory.
 
-########Have any question or request .. 
+######## Have any question or request .. 
 Contact ME: Ahmad Hegazy <ahegazipro@gmail.com>
