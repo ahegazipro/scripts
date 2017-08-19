@@ -108,18 +108,18 @@ int main () {
     int sudoko[9][9];
 
     printf("WELCOME TO SUDOKO SOLUTION CHECKER.\n");
-    printf("TYPE 'f' TO ENTER THE SOLUTION ON A FILE.\n");
-    printf("TYPE 'i' TO ENTER THE SOLUTION ON THE TERMINAL.\n");
+    printf("TYPE 'f' TO ENTER SOLUTION ON A FILE.\n");
+    printf("TYPE 'i' TO ENTER SOLUTION ON THE TERMINAL.\n");
     printf("TYPE 'e' TO EXIT.\n");
 //INFINITE LOOP TO GET THE USER'S INPUT.
     while(1){
-        printf("Please Enter [f/i/e] to continue >");
+        printf("Enter [f/i/e] to continue >");
         scanf(" %c",&c);
 
         if(c == 'f'){
             //GETTING FILE CONTAINING THE SOLUTION.
             char path[100];
-            printf("Please Enter the solution file path >");
+            printf("Enter the solution file path >");
             scanf("%s",&path);
             FILE *file;
             file=fopen(path, "r");
@@ -142,11 +142,9 @@ int main () {
                 //FILE DOESNOT EXIST .. GETTING USER OPTION AGAIN.
                 continue;
             }
-            //SUDOKO ARRAY ASSIGNING WENT WELL, GETTING OUT OF THE LOOP.
-            break;
         
         }else if(c == 'i'){
-            printf("Please Enter the solution.\n");
+            printf("Enter the solution.\n");
             //GETTING SOLUTION FROM THE TERMINAL.
             for(int i=0;i<9;i++)
             {
@@ -155,8 +153,6 @@ int main () {
                     scanf(" %d",&sudoko[i][j]);
                 }
             }
-            //SUDOKO ARRAY ASSIGNING WENT WELL, GETTING OUT OF THE LOOP.        
-            break;
         }else if(c == 'e'){
             return 1;
         }else {
@@ -164,9 +160,9 @@ int main () {
             continue;
         }
 
+        //CHECKING IF THE SOLUTION IS RIGHT. 
+        (!chkOrthogonal(sudoko) || !chkBlocks(sudoko)) ? printf("WRONG SOLUTION \n\n") : printf("RIGHT SOLUTION \n\n");
     }
       
-    //CHECKING IF THE SOLUTION IS RIGHT. 
-    (!chkOrthogonal(sudoko) || !chkBlocks(sudoko)) ? printf("WRONG SOLUTION \n") : printf("RIGHT SOLUTION \n");
     return 0;
 }
