@@ -1,8 +1,9 @@
-#Purpose
+# Purpose
+
 This repository contains scripts that i create/modify, in diffrent programming/scripting languages 'Bash - PHP - Python - C ' etc..
 [src](src/sudoko.c) directory.
 
-##Scripts List
+## Scripts List
 1. [Auto url shortner](auto-url-shortner.sh) : A shell script That uses [polr](http://github.com/cydrobolt/polr) script API to short a list of urls.
 2. [Shorten Drive](shorten_drive.php) : A php script that recursively shorten [goo.gl] a google drive folder and its contents.
 3. [Translate](translate.php) : A php script that automatically translates a text to a 58 languages using Google translate.
@@ -11,5 +12,5 @@ This repository contains scripts that i create/modify, in diffrent programming/s
 
 
 
-##Contact ME: 
+## Contact ME: 
 Ahmad Hegazy <ahegazipro@gmail.com> ..
