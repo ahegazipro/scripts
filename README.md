@@ -1,6 +1,6 @@
 # Purpose
 
-This repository contains scripts that i create/modify, in diffrent programming/scripting languages 'Bash - PHP - Python - C - C+ - arduino' etc..
+This repository contains scripts that i create/modify, in diffrent programming/scripting languages 'Bash - PHP - Python - C - C++ - arduino' etc..
 
 ## Scripts List
 1. [Auto url shortner](auto-url-shortner.sh) : A shell script That uses [polr](http://github.com/cydrobolt/polr) script API to short a list of urls.
