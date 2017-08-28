@@ -52,7 +52,7 @@ void setup() {
   pinMode(pbDown, INPUT);
   pinMode(pbLeft, INPUT);
   pinMode(pbRight, INPUT);
-  pinMode(pbMod, INPUT);
+  pinMode(pbSpeed, INPUT);
   
   pinMode(servoControlPin, OUTPUT);
   pinMode(trigPin, OUTPUT);
@@ -60,9 +60,9 @@ void setup() {
   
   //Iniyislize the Interrupt pins
   pinMode(pbStop, INPUT_PULLUP);
-  attachInterrupt(digitalPinToInterrupt(pbStop), stopMoving, CHANGE);
+  attachInterrupt(digitalPinToInterrupt(pbStop), stopMoving, RISING);
   pinMode(pbMod, INPUT_PULLUP);
-  attachInterrupt(digitalPinToInterrupt(pbMod), toggleMod, CHANGE);
+  attachInterrupt(digitalPinToInterrupt(pbMod), toggleMod, RISING);
 
 //Attaching the SERVO
   Controller.attach(servoControlPin);
@@ -177,9 +177,9 @@ void manualMove(){
   while(1){
    if(mod != 0 ){return;}
    byte up = digitalRead(pbUp);
-   byte down = digitalRead(pbUp);
-   byte right = digitalRead(pbUp);
-   byte left = digitalRead(pbUp); 
+   byte down = digitalRead(pbDown);
+   byte right = digitalRead(pbRight);
+   byte left = digitalRead(pbLeft); 
   
     if( up == HIGH ){
       moveUp();
