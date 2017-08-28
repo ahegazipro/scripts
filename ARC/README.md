@@ -7,9 +7,9 @@ An arduino program controlles a 4-wheel robot.
      - 1 for the mode of operation
      - 1 to stop the robot
      - 1 to choose to mode of the speed
-2. There are two modes of operation :
-        - Manual-mode: In this mode the robot is controlled using the joystick
-		- Automatic-mode: In this mode the robot must avoid any obstacle in its way, and when found, it must choose clearest way to go.
+2. There are two modes of operation:
+	- Manual-mode: In this mode the robot is controlled using the joystick
+	- Automatic-mode: In this mode the robot must avoid any obstacle in its way, and when found, it must choose clearest way to go.
 3.	Three speed modes (60-125-255)
 4.	 Each wheel is coupled to a DC Motor. The motors are controlled by 2 Dual Channel Cytron motor drivers, each driver can control both motor RPM and direction of rotation. The RPM is controlled by applying a PWM signal to the PWM pin of the corresponding motor. The direction of rotation is controlled by either applying a logic HIGH(1) or a logic LOW(0) to the direction pin of the corresponding motor.  
 5. For the Automatic mode, the robot has a servo motor and an ultra-sonic sensor mounted above it.

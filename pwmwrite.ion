@@ -1,0 +1,20 @@
+/* 
+@LANG: ARDUINO
+@USAGE: A function that produce an analog voltage on a non-PWM pin.
+@PARAMETERS: takes non-PWM pin number and value between 0 [LOW] to 255 [HIGH]
+@Description: The voltage value taking from a pin is the average value of the period.
+			Using that we can get an average value from a non-PWM enabled arduino pin by manipulating the duty cycle of the HIGH and LOW voltage with a very small period 1 micro second.
+*/
+
+
+void PWMWrite(int pin, int val){
+  float volt = (float) val;
+  float timeHIGH = ((volt/255.00) * 100.00 ) * 1.00; //getting the percentage of the HIGH voltue and multiplying it by 1 MICROSECOND
+  float timeLOW = 1.00 - timeHIGH;
+  while(1){ //Infinit loop to supply the needed voltage without stopping.
+    digitalWrite(pin,HIGH);
+    delayMicroseconds(timeHIGH);
+    digitalWrite(pin,LOW);
+    delayMicroseconds(timeLOW);
+  }
+}
