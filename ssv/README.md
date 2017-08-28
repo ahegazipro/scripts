@@ -20,7 +20,7 @@ A C program that reads a sudoko solution and validate the solution is right OR g
 9. If it all went well it will till you that your solution is right.
 
 
-- You can get use a binary file built on Linux/fedora distro at [bin](bin/sudoko.bin) directory.
+- You can get use a binary file built on Windows10 at [bin](bin/sudoko.exe) directory.
 - You can get the source code and build it using any C compiler at [src](src/sudoko.c) directory.
 
 ###### Have any question or request .. 
