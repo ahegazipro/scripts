@@ -8,8 +8,8 @@ This repository contains scripts that i create/modify, in diffrent programming/s
 3. [Translate](translate.php) : A php script that automatically translates a text to a 58 languages using Google translate.
 4. [hours-fixboot](horus-fixboot) : A shell script that recover linux GRUB.
 5. [Sudoko solution validator](ssv) : A C program that reads a sudoko solution and validate the solution is right OR giving the wrong answer's specific position.
-5. [Employees Purchase management System ](EPMS) : A C++ program that manages employees, products and their purchases and save them into csv files.
-
+6. [Employees Purchase management System ](EPMS) : A C++ program that manages employees, products and their purchases and save them into csv files.
+7. [ Arduino Robot Controller ](ARC) : An arduino program controlles a 4-wheel robot. 
 
 
 ## Contact ME: 
