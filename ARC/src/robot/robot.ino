@@ -62,7 +62,7 @@ void setup() {
   pinMode(pbStop, INPUT_PULLUP);
   attachInterrupt(digitalPinToInterrupt(pbStop), stopMoving, CHANGE);
   pinMode(pbMod, INPUT_PULLUP);
-  attachInterrupt(digitalPinToInterrupt(pbMod), changeMod, CHANGE);
+  attachInterrupt(digitalPinToInterrupt(pbMod), toggleMod, CHANGE);
 
 //Attaching the SERVO
   Controller.attach(servoControlPin);
@@ -96,7 +96,7 @@ void stopMoving(){
   
 }
 
-void changeMod(){
+void toggleMod(){
   if (mod == 0){
      mod = 1;
     }else{
@@ -150,7 +150,6 @@ void autoMove(){
     }else {
             moveBack();
     }
-    delay(100);
   }
 }
 

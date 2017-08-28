@@ -24,18 +24,18 @@ An arduino program controlles a 4-wheel robot.
 2. First we are checking for speed change and toggeling it.
 3. Then we check the mod and run the moving function depending on the mode [manual 0 / auto 1]
 4. In the manual mode we check for the direction push button press and move depending on it.
-	-Forward :  all motor move forward [CW].
-	-Backward : all motors move backward [CCW].
-	-Right : right motors move backward [CCW] and left motors move farward [CW].
-	-Left : left motors move backward [CCW] and right motors move farward [CW].
+	- Forward :  all motor move forward [CW].
+	- Backward : all motors move backward [CCW].
+	- Right : right motors move backward [CCW] and left motors move farward [CW].
+	- Left : left motors move backward [CCW] and right motors move farward [CW].
 5. In the automatic mode we use the servo and ultrasonic sensor to check for barriers around us.
-	-we check the distance in all 3 direction [front - right - left] then compare them and choose the direction depending on them.
+	- we check the distance in all 3 direction [front - right - left] then compare them and choose the direction depending on them.
 6. Using two interrupts to Stop and toggle the mode.	
 	
 	
 ##### [ARDUINO UNO] Sketch uses 3496 bytes (10%) of program storage space. Maximum is 32256 bytes.
 
-- You can get the source code and build it using any arduino IDE at [src](src/robot.c) directory.
+- You can get the source code and build it using any arduino IDE at [src](src/robot) directory.
 - You can get a compiled hex file [bin](bin) directory.
 
 ###### * NOTE * this code is not tested physically.
