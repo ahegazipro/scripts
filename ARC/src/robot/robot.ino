@@ -27,13 +27,13 @@ const byte echoPin=A0;  //Sensor Echo pin connected to Arduino pin A0
 const byte servoControlPin=6; //Servo control line is connected to pin 6
 
 Servo Controller; //setting up a servo motor for moving the ultrasonic
-byte servoAngle = 90; //Variable for the value we want to set servo to. DEFAULT looking forward
+volatile byte servoAngle = 90; //Variable for the value we want to set servo to. DEFAULT looking forward
 
 /* Available Speeds  */
 //byte speeds[] = {60, 125, 255};
 byte Cspeed = 60; //current speed //  [ 60 - 125 - 255 ] 
 /* Available MODS */
-byte mod = 0; //1: AUTO , 0: Manual default mod IS manual
+volatile byte mod = 0; //1: AUTO , 0: Manual default mod IS manual
 
 /*******************************************************************************
  * FUNCTIONS                                                                    *
