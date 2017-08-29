@@ -1,6 +1,15 @@
 #include <Servo.h>  //Load Servo Library
 /* MOTORS */
-//All motors should have the same speed so will connect All PWMs to one pin //pin 3
+/*
+ * CYTRON MOTOR DRIVER
+ * needs 2 inputs for each motor 
+ * PWM -analog voltage- for speed
+ * Digital voltage (High/Low) for direction
+*/
+
+
+
+//All motors should have the same speed so will connect All PWMs to one pin //pin 5
 const byte pinPwm = 5;
 //DIRECTION PIN // CW LOW , CCW HIGH
 //motor 1 [TOP RIGHT] 
@@ -86,7 +95,6 @@ void loop() {
   
 void stopMoving(){
   //stopping the motors >> speed = 0;
-  analogWrite(pinPwm,0);
   analogWrite(pinPwm,0);
   //stopping the Servo making it look forward
   servoAngle = 90;
