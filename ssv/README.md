@@ -1,6 +1,6 @@
 # Sudoko solution validator [SSV]
 
-##MOVED TO SEPARATE [REPO](https://github.com/ahegazy/sudoko-solution-validator)
+## MOVED TO SEPARATE [REPO](https://github.com/ahegazy/sudoko-solution-validator)
 
 
 ###### Have any question or request .. 
