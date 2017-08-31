@@ -7,10 +7,11 @@ This repository contains scripts that i create/modify, in diffrent programming/s
 2. [Shorten Drive](shorten_drive.php) : A php script that recursively shorten [goo.gl] a google drive folder and its contents.
 3. [Translate](translate.php) : A php script that automatically translates a text to a 58 languages using Google translate.
 4. [hours-fixboot](horus-fixboot) : A shell script that recover linux GRUB.
-5. [Sudoko solution validator] : A C program that reads a sudoko solution and validate the solution is right OR giving the wrong answer's specific position. Moved to separate [repo](https://github.com/ahegazy/sudoko-solution-validator)
-6. [Employees Purchase management System ](EPMS) : A C++ program that manages employees, products and their purchases and save them into csv files.
-7. [ Arduino Robot Controller ] : An arduino program controlles a 4-wheel robot. Moved to separate [repo](https://github.com/ahegazy/arduino-robot-controller)
-8. [ Arduino PWM wirte ](pwmwrite.ion): A function that produce an analog voltage on a non-PWM arduino pin.
+5. [ Arduino PWM wirte ](pwmwrite.ion): A function that produce an analog voltage on a non-PWM arduino pin.
+--------
+* Sudoko solution validator [MOVED](https://github.com/ahegazy/sudoko-solution-validator): A C program that reads a sudoko solution and validate the solution is right OR giving the wrong answer's specific position.
+* Employees Purchase management System [MOVED](https://github.com/ahegazy/sudoko-solution-validator) : A C++ program that manages employees, products and their purchases and save them into csv files.
+* Arduino Robot Controller [MOVED](https://github.com/ahegazy/arduino-robot-controller): An arduino program controlles a 4-wheel robot.
 
 ## Contact ME: 
 Ahmad Hegazy <ahegazipro@gmail.com> ..
