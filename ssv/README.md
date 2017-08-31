@@ -1,4 +1,5 @@
 # Sudoko solution validator [SSV]
+##MOVED TO SEPARATE [REPO](https://github.com/ahegazy/sudoko-solution-validator)
 A C program that reads a sudoko solution and validate the solution is right OR giving the wrong answer's specific position.
 
 ## How to use it

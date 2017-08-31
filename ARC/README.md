@@ -1,4 +1,5 @@
 # Arduino Robot Controller [ARC]
+##MOVED TO SEPARATE [REPO](https://github.com/ahegazy/arduino-robot-controller)
 An arduino program controlles a 4-wheel robot. 
 
 ## This robot has the following specifications:  
