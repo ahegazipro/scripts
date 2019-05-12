@@ -9,6 +9,7 @@ This repository contains scripts that i create/modify, in diffrent programming/s
 4. [hours-fixboot](horus-fixboot) : A shell script that recover linux GRUB.
 5. [Arduino PWM wirte ](pwmwrite.ion): A function that produce an analog voltage on a non-PWM arduino pin.
 6. [Escape HTML](htmlEscape.sh): A bash script to escape html code to be printed in my [blog](https://ahegazy.github.io) posts as code examples.
+7. [gnuradio AM FM simulation](gnuradio): Simulation files for multiple signal modulation mods, Amplitude modulation [DSBSC-DSBTC] <Coherent and Non Coherent Detection> and Anagle Modulation [FM-AM].
 
 --------
 * Sudoko solution validator [MOVED](https://github.com/ahegazy/sudoko-solution-validator): A C program that reads a sudoko solution and validate the solution is right OR giving the wrong answer's specific position.
