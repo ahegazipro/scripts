@@ -11,5 +11,6 @@ This repository contains scripts that i created in diffrent programming/scriptin
 6. [Escape HTML](htmlEscape.sh): A bash script to escape html code to be printed in my [blog](https://ahegazy.github.io) posts as code examples.
 7. [gnuradio AM FM simulation](gnuradio): Simulation files for multiple signal modulation mods, Amplitude modulation [DSBSC-DSBTC] <Coherent and Non Coherent Detection> and Anagle Modulation [FM-AM].
 
-### Contact ME: 
-Ahmad Hegazy <ahegazipro@gmail.com> ..
+### Contribution
+for any problems or questions open an issue, 
+if you have any fixes send a pull request
